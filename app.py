@@ -1,9 +1,14 @@
 import os
 import requests
 import re
-from flask import Flask, render_template, request, Response, stream_with_context
+from flask import Flask, render_template, request, Response, stream_with_context, send_from_directory
 
 app = Flask(__name__)
+
+# Deployment verification route
+@app.route('/9f976202c1cd74b7ab228d7d530feba8.txt')
+def verify():
+    return send_from_directory(os.getcwd(), '9f976202c1cd74b7ab228d7d530feba8.txt')
 
 # Configuration
 API_BASE_URL = "https://ai.zht666.dpdns.org/v1/audio/speech"
