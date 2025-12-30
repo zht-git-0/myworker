@@ -5,10 +5,14 @@ from flask import Flask, render_template, request, Response, stream_with_context
 
 app = Flask(__name__)
 
-# Deployment verification route
+# Deployment verification routes
 @app.route('/9f976202c1cd74b7ab228d7d530feba8.txt')
-def verify():
+def verify1():
     return send_from_directory(os.getcwd(), '9f976202c1cd74b7ab228d7d530feba8.txt')
+
+@app.route('/98f3740c1fc4c5baf2aa4efc8257790b.txt')
+def verify2():
+    return send_from_directory(os.getcwd(), '98f3740c1fc4c5baf2aa4efc8257790b.txt')
 
 # Configuration
 API_BASE_URL = "https://ai.zht666.dpdns.org/v1/audio/speech"
