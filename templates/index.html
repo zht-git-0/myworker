@@ -595,12 +595,18 @@
                     <label style="font-size: 1rem;"><i class="fa-solid fa-gauge-high"></i> 语速 & 音调</label>
                     <div class="slider-box" style="border: none; padding: 0;">
                         <div class="slider-header">
-                            <span>语速</span>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <span>语速</span>
+                                <button onclick="resetValue('speed')" style="background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:0.75rem; padding:0;"><i class="fa-solid fa-rotate-left"></i> 重置</button>
+                            </div>
                             <span id="speed-val" style="color: var(--primary); font-weight: 600;">1.00</span>
                         </div>
                         <input type="range" id="speed" min="0.0" max="2.0" step="0.05" value="1.0">
                         <div class="slider-header" style="margin-top: 1rem">
-                            <span>音调</span>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <span>音调</span>
+                                <button onclick="resetValue('pitch')" style="background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:0.75rem; padding:0;"><i class="fa-solid fa-rotate-left"></i> 重置</button>
+                            </div>
                             <span id="pitch-val" style="color: var(--primary); font-weight: 600;">1.00</span>
                         </div>
                         <input type="range" id="pitch" min="0.0" max="2.0" step="0.05" value="1.0">
@@ -722,6 +728,16 @@
             textInput.value = '';
             updateCharCount();
             textInput.focus();
+        }
+
+        function resetValue(type) {
+            if (type === 'speed') {
+                speedInput.value = 1.0;
+                speedVal.textContent = "1.00";
+            } else if (type === 'pitch') {
+                pitchInput.value = 1.0;
+                pitchVal.textContent = "1.00";
+            }
         }
 
         function showError(msg) {
